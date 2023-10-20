@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}View Book{% endblock %}
+{% block content %}
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ book.title }}</h2>
+            <p class="card-text">Category: {{ book.category }}</p>
+            <p class="card-text">Author: {{ book.authors }}</p>
+            <p class="card-text">Expense: {{ book.distribution_expense }}</p>
+            <a class="btn btn-primary" href="{% url 'quillcart:update_book' book.custom_id %}">Edit</a>
+            <a class="btn btn-danger" href="{% url 'quillcart:delete_book' book.custom_id %}">Delete</a>
+            <a class="btn btn-secondary" href="{% url 'quillcart:book_list' %}">Book List</a>
+        </div>
+    </div>
+{% endblock %}

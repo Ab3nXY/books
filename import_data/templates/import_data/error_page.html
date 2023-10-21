@@ -1,0 +1,17 @@
+<!-- import_data/error_page.html -->
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="text-center">
+                    <h1 class="display-4">Error</h1>
+                    <p class="lead">{{ error_message }}</p>
+                    <p><a href="{% url 'quillcart:book_list' %}" class="btn btn-primary">Go back to Book List</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

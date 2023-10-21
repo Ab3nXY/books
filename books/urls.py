@@ -22,5 +22,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('quillcart.urls')),
+    path('', include('import_data.urls')),
 ]
 

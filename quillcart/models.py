@@ -1,7 +1,7 @@
 from django.db import models
 
 class Book(models.Model):
-    custom_id = models.DecimalField(max_digits=13, decimal_places=0, primary_key=True)
+    custom_id = models.DecimalField(max_digits=20, decimal_places=0, primary_key=True)
     title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255, null=True, blank=True)
     authors = models.CharField(max_length=255)

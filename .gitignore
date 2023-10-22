@@ -1,2 +1,4 @@
 # Ignore .env files
 .env
+# Ignore the excel file
+media/excel_file.xlsx

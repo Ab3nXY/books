@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-light">Book Dashboard</h1>
+
+    <div class="alert alert-primary" role="alert">
+        Total Number of Books: {{ total_books }}
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            <canvas id="categoryChart" width="400" height="300"></canvas>
+        </div>
+        <div class="col-md-6">
+            <canvas id="expenseChart" width="400" height="300"></canvas>
+        </div>
+    </div>
+
+    <table class="table table-dark table-bordered">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Number of Books</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category_count in category_counts %}
+                <tr>
+                    <td>{{ category_count.category }}</td>
+                    <td>{{ category_count.count }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">No data available</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // JavaScript code for Chart.js bar chart
+    var categoryData = {{ category_data|safe }};
+
+    var categoryChartCanvas = document.getElementById('categoryChart');
+
+    var categoryChart = new Chart(categoryChartCanvas, {
+        type: 'bar',
+        data: categoryData,
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    // JavaScript code for Chart.js pie chart for total expense
+    var expenseData = {{ expense_data|safe }};
+
+    var expenseChartCanvas = document.getElementById('expenseChart');
+
+    var expenseChart = new Chart(expenseChartCanvas, {
+        type: 'pie',
+        data: expenseData,
+    });
+</script>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">File Successfully Uploaded and Imported!</h4>
+        <p>The Excel data has been successfully processed and imported into your system.</p>
+    </div>
+    
+    <div class="my-4">
+        <a class="btn btn-primary" href="{% url 'upload_excel_file' %}">Upload Another Excel File</a>
+    </div>
+</div>
+{% endblock %}

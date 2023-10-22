@@ -20,7 +20,7 @@ def upload_excel_file(request):
 
             if result.returncode == 0:
                 # The command executed successfully
-                return HttpResponseRedirect('success-url')  # Redirect to a success page
+                return render(request, 'import_data/upload_success.html', {'success_message': 'successfuly uploaded and imported'})  # Redirect to a success page
             else:
                 # Handle any errors or failures
                 return render(request, 'import_data/error_page.html', {'error_message': 'Processing failed.'})
